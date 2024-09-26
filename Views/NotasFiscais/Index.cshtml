@@ -1,0 +1,50 @@
+﻿@using FinanceiroWeb.Extensions
+@model IEnumerable<FinanceiroWeb.Models.NotaFiscal>
+
+@{
+    ViewData["Title"] = "Notas Fiscais";
+}
+
+<h1>Notas Fiscais</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="AdicionarNF">Adicionar Nota</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome Pagador</th>
+            <th>Número Nota</th>
+            <th>Data Emissão</th>
+            <th>Data Cobrança</th>
+            <th>Data Pagamento</th>
+            <th>Valor</th>
+            <th>Documento Nota</th>
+            <th>Documento Boleto</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.NomePagador</td>
+                <td>@item.NumeroNota</td>
+                <td>@item.DataEmissao.ToString("dd/MM/yyyy")</td>
+                <td>@item.DataCobranca.ToString("dd/MM/yyyy")</td>
+                <td>@item.DataPagamento?.ToString("dd/MM/yyyy")</td>
+                <td>@item.Valor.ToString("C")</td>
+                <td>@item.DocumentoNota</td>
+                <td>@item.DocumentoBoleto</td>
+                <td>@item.Status.GetDisplayName()</td>
+                <td>
+                    <a class="btn btn-warning" asp-action="EditarNF" asp-route-id="@item.NotaId">Editar</a> |
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.NotaId">Detalhes</a> |
+                    <a class="btn btn-danger" asp-action="ExcluirNF" asp-route-id="@item.NotaId">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

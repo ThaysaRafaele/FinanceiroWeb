@@ -2,12 +2,11 @@
 using FinanceiroWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace FinanceiroWeb.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class NotasFiscaisController : ControllerBase
+    public class NotasFiscaisController : Controller
     {
         private readonly FinanceiroContext _context;
 
@@ -16,81 +15,99 @@ namespace FinanceiroWeb.Controllers
             _context = context;
         }
 
-        // GET: api/NotasFiscais
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<NotaFiscal>>> GetNotasFiscais()
+        // GET: NotasFiscais/Index
+        public async Task<IActionResult> Index()
         {
-            return await _context.NotasFiscais.ToListAsync();
+            var notasFiscais = await _context.NotasFiscais.ToListAsync();
+            return View(notasFiscais);
         }
 
-        // GET: api/NotasFiscais/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<NotaFiscal>> GetNotaFiscal(int id)
+        // GET: NotasFiscais/AdicionarNF
+        public IActionResult AdicionarNF()
+        {
+            return View();
+        }
+
+        // POST: NotasFiscais/AdicionarNF
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AdicionarNF([Bind("NomePagador,NumeroNota,DataEmissao,DataCobranca,DataPagamento,Valor,DocumentoNota,DocumentoBoleto,Status")] NotaFiscal notaFiscal)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(notaFiscal);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(notaFiscal);
+        }
+
+        // GET: NotasFiscais/EditarNF/5
+        public async Task<IActionResult> EditarNF(int id)
         {
             var notaFiscal = await _context.NotasFiscais.FindAsync(id);
-
             if (notaFiscal == null)
             {
                 return NotFound();
             }
-
-            return notaFiscal;
+            return View(notaFiscal);
         }
 
-        // POST: api/NotasFiscais
+        // POST: NotasFiscais/EditarNF/5
         [HttpPost]
-        public async Task<ActionResult<NotaFiscal>> PostNotaFiscal(NotaFiscal notaFiscal)
-        {
-            _context.NotasFiscais.Add(notaFiscal);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetNotaFiscal", new { id = notaFiscal.NotaId }, notaFiscal);
-        }
-
-        // PUT: api/NotasFiscais/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutNotaFiscal(int id, NotaFiscal notaFiscal)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditarNF(int id, [Bind("NotaId,NomePagador,NumeroNota,DataEmissao,DataCobranca,DataPagamento,Valor,DocumentoNota,DocumentoBoleto,Status")] NotaFiscal notaFiscal)
         {
             if (id != notaFiscal.NotaId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(notaFiscal).State = EntityState.Modified;
-
-            try
+            if (ModelState.IsValid)
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!NotaFiscalExists(id))
+                try
                 {
-                    return NotFound();
+                    _context.Update(notaFiscal);
+                    await _context.SaveChangesAsync();
                 }
-                else
+                catch (DbUpdateConcurrencyException)
                 {
-                    throw;
+                    if (!NotaFiscalExists(notaFiscal.NotaId))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
                 }
+                return RedirectToAction(nameof(Index));
             }
-
-            return NoContent();
+            return View(notaFiscal);
         }
 
-        // DELETE: api/NotasFiscais/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteNotaFiscal(int id)
+        // GET: NotasFiscais/ExcluirNF/5
+        public async Task<IActionResult> ExcluirNF(int id)
         {
-            var notaFiscal = await _context.NotasFiscais.FindAsync(id);
+            var notaFiscal = await _context.NotasFiscais
+                .FirstOrDefaultAsync(m => m.NotaId == id);
             if (notaFiscal == null)
             {
                 return NotFound();
             }
 
+            return View(notaFiscal);
+        }
+
+        // POST: NotasFiscais/ExcluirNF/5
+        [HttpPost, ActionName("ExcluirNF")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var notaFiscal = await _context.NotasFiscais.FindAsync(id);
             _context.NotasFiscais.Remove(notaFiscal);
             await _context.SaveChangesAsync();
-
-            return NoContent();
+            return RedirectToAction(nameof(Index));
         }
 
         private bool NotaFiscalExists(int id)

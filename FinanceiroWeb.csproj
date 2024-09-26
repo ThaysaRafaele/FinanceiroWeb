@@ -11,9 +11,13 @@
 
   <ItemGroup>
     <Compile Remove="Views\Home\**" />
+    <Compile Remove="Views\NovaPasta\**" />
     <Content Remove="Views\Home\**" />
+    <Content Remove="Views\NovaPasta\**" />
     <EmbeddedResource Remove="Views\Home\**" />
+    <EmbeddedResource Remove="Views\NovaPasta\**" />
     <None Remove="Views\Home\**" />
+    <None Remove="Views\NovaPasta\**" />
   </ItemGroup>
 
   <ItemGroup>
