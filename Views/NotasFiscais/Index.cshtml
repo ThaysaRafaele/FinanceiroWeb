@@ -7,9 +7,56 @@
 
 <h1>Notas Fiscais</h1>
 
-<p>
+<div class="d-flex justify-content-between mb-3">
     <a class="btn btn-primary" asp-action="AdicionarNF">Adicionar Nota</a>
-</p>
+    <button class="btn btn-info" type="button" id="filterToggleBtn">
+        <i class="bi bi-funnel" id="filterIcon"></i>
+    </button>
+</div>
+
+<form method="get" id="filterForm" style="display: none;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2 mb-2">
+                <label for="anoEmissao">Ano de Emissão</label>
+                <input type="number" id="anoEmissao" name="anoEmissao" class="form-control" min="2023" max="2024" />
+            </div>
+            <div class="col-md-2 mb-2">
+                <label for="mesEmissao">Mês de Emissão</label>
+                <input type="number" id="mesEmissao" name="mesEmissao" class="form-control" min="1" max="12" />
+            </div>
+            <div class="col-md-2 mb-2">
+                <label for="anoCobranca">Ano de Cobrança</label>
+                <input type="number" id="anoCobranca" name="anoCobranca" class="form-control" min="2000" max="2100" />
+            </div>
+            <div class="col-md-2 mb-2">
+                <label for="mesCobranca">Mês de Cobrança</label>
+                <input type="number" id="mesCobranca" name="mesCobranca" class="form-control" min="1" max="12" />
+            </div>
+            <div class="col-md-2 mb-2">
+                <label for="anoPagamento">Ano de Pagamento</label>
+                <input type="number" id="anoPagamento" name="anoPagamento" class="form-control" min="2000" max="2100" />
+            </div>
+            <div class="col-md-2 mb-2">
+                <label for="mesPagamento">Mês de Pagamento</label>
+                <input type="number" id="mesPagamento" name="mesPagamento" class="form-control" min="1" max="12" />
+            </div>
+            <div class="col-md-2 mb-2">
+                <label for="status">Status</label>
+                <select id="status" name="status" class="form-control">
+                    <option value="">Todos</option>
+                    @foreach (var option in ViewBag.StatusOptions as IEnumerable<SelectListItem>)
+                    {
+                        <option value="@option.Value">@option.Text</option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-2 align-self-end mb-2">
+                <button type="submit" class="btn btn-info">Filtrar</button>
+            </div>
+        </div>
+    </div>
+</form>
 
 <table class="table">
     <thead>
@@ -40,11 +87,29 @@
                 <td>@item.DocumentoBoleto</td>
                 <td>@item.Status.GetDisplayName()</td>
                 <td>
-                    <a class="btn btn-warning" asp-action="EditarNF" asp-route-id="@item.NotaId">Editar</a> |
-                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.NotaId">Detalhes</a> |
+                    <a class="btn btn-warning" asp-action="EditarNF" asp-route-id="@item.NotaId">Editar</a> 
                     <a class="btn btn-danger" asp-action="ExcluirNF" asp-route-id="@item.NotaId">Excluir</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+@section Scripts {
+    <script>
+        document.getElementById('filterToggleBtn').addEventListener('click', function () {
+            var filterForm = document.getElementById('filterForm');
+            var filterIcon = document.getElementById('filterIcon');
+
+            if (filterForm.style.display === 'none' || filterForm.style.display === '') {
+                filterForm.style.display = 'block';
+                filterIcon.classList.remove('bi-funnel');
+                filterIcon.classList.add('bi-x');
+            } else {
+                filterForm.style.display = 'none';
+                filterIcon.classList.remove('bi-x');
+                filterIcon.classList.add('bi-funnel');
+            }
+        });
+    </script>
+}
