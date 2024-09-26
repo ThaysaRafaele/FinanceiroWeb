@@ -1,4 +1,5 @@
-﻿@model IEnumerable<FinanceiroWeb.Models.NotaFiscal>
+﻿@using FinanceiroWeb.Extensions
+@model IEnumerable<FinanceiroWeb.Models.NotaFiscal>
 
 @{
     ViewData["Title"] = "Notas Fiscais";
@@ -37,7 +38,7 @@
                 <td>@item.Valor.ToString("C")</td>
                 <td>@item.DocumentoNota</td>
                 <td>@item.DocumentoBoleto</td>
-                <td>@item.Status</td>
+                <td>@item.Status.GetDisplayName()</td>
                 <td>
                     <a class="btn btn-warning" asp-action="EditarNF" asp-route-id="@item.NotaId">Editar</a> |
                     <a class="btn btn-info" asp-action="Details" asp-route-id="@item.NotaId">Detalhes</a> |

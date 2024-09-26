@@ -1,7 +1,18 @@
-﻿@model FinanceiroWeb.Models.NotaFiscal
+﻿@using FinanceiroWeb.Extensions
+@model FinanceiroWeb.Models.NotaFiscal
 
 @{
     ViewData["Title"] = "Editar Nota Fiscal";
+
+    // Preparando a lista de opções para o Status da Nota
+    var statusOptions = Enum.GetValues(typeof(FinanceiroWeb.Models.StatusNotaFiscal))
+        .Cast<FinanceiroWeb.Models.StatusNotaFiscal>()
+        .Select(status => new
+        {
+            Value = (int)status,
+            Text = status.GetDisplayName(),
+            IsSelected = status == Model.Status
+        }).ToList();
 }
 
 <h1>Editar Nota Fiscal</h1>
@@ -50,7 +61,17 @@
     </div>
     <div class="form-group">
         <label asp-for="Status" class="control-label"></label>
-        <input asp-for="Status" class="form-control" />
+        <select asp-for="Status" class="form-control">
+            @foreach (var option in statusOptions)
+            {
+                // armazenando o valor "selected"
+                var selected = option.IsSelected ? "selected" : "";
+
+                <option value="@option.Value" selected="@selected">
+                    @option.Text
+                </option>
+            }
+        </select>
         <span asp-validation-for="Status" class="text-danger"></span>
     </div>
     <div class="form-group">
