@@ -1,0 +1,59 @@
+﻿@model FinanceiroWeb.Models.NotaFiscal
+
+@{
+    ViewData["Title"] = "Criar Nota Fiscal";
+}
+
+<h1>Criar Nota Fiscal</h1>
+
+<form asp-action="AdicionarNF">
+    <div class="form-group">
+        <label asp-for="NomePagador" class="control-label"></label>
+        <input asp-for="NomePagador" class="form-control" />
+        <span asp-validation-for="NomePagador" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NumeroNota" class="control-label"></label>
+        <input asp-for="NumeroNota" class="form-control" />
+        <span asp-validation-for="NumeroNota" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DataEmissao" class="control-label"></label>
+        <input asp-for="DataEmissao" class="form-control" type="date" />
+        <span asp-validation-for="DataEmissao" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DataCobranca" class="control-label"></label>
+        <input asp-for="DataCobranca" class="form-control" type="date" />
+        <span asp-validation-for="DataCobranca" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DataPagamento" class="control-label"></label>
+        <input asp-for="DataPagamento" class="form-control" type="date" />
+        <span asp-validation-for="DataPagamento" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Valor" class="control-label"></label>
+        <input asp-for="Valor" class="form-control" type="number" step="0.01" />
+        <span asp-validation-for="Valor" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DocumentoNota" class="control-label"></label>
+        <input asp-for="DocumentoNota" class="form-control" />
+        <span asp-validation-for="DocumentoNota" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DocumentoBoleto" class="control-label"></label>
+        <input asp-for="DocumentoBoleto" class="form-control" />
+        <span asp-validation-for="DocumentoBoleto" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Status" class="control-label"></label>
+        <input asp-for="Status" class="form-control" />
+        <span asp-validation-for="Status" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Salvar" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+    </div>
+</form>
