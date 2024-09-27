@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Thays\\OneDrive\\Documentos\\UneCont\\FinanceiroWeb\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{672F0C86-6E90-4D2E-84B8-4E41A4543D80}|FinanceiroWeb.csproj|c:\\users\\thays\\onedrive\\documentos\\unecont\\financeiroweb\\views\\notasfiscais\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{672F0C86-6E90-4D2E-84B8-4E41A4543D80}|FinanceiroWeb.csproj|solutionrelative:views\\notasfiscais\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{672F0C86-6E90-4D2E-84B8-4E41A4543D80}|FinanceiroWeb.csproj|c:\\users\\thays\\onedrive\\documentos\\unecont\\financeiroweb\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{672F0C86-6E90-4D2E-84B8-4E41A4543D80}|FinanceiroWeb.csproj|solutionrelative:views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{672F0C86-6E90-4D2E-84B8-4E41A4543D80}|FinanceiroWeb.csproj|c:\\users\\thays\\onedrive\\documentos\\unecont\\financeiroweb\\controllers\\notasfiscaiscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{672F0C86-6E90-4D2E-84B8-4E41A4543D80}|FinanceiroWeb.csproj|solutionrelative:controllers\\notasfiscaiscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{672F0C86-6E90-4D2E-84B8-4E41A4543D80}|FinanceiroWeb.csproj|c:\\users\\thays\\onedrive\\documentos\\unecont\\financeiroweb\\views\\notasfiscais\\adicionarnf.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{672F0C86-6E90-4D2E-84B8-4E41A4543D80}|FinanceiroWeb.csproj|solutionrelative:views\\notasfiscais\\adicionarnf.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{672F0C86-6E90-4D2E-84B8-4E41A4543D80}|FinanceiroWeb.csproj|c:\\users\\thays\\onedrive\\documentos\\unecont\\financeiroweb\\views\\notasfiscais\\editarnf.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{672F0C86-6E90-4D2E-84B8-4E41A4543D80}|FinanceiroWeb.csproj|solutionrelative:views\\notasfiscais\\editarnf.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{672F0C86-6E90-4D2E-84B8-4E41A4543D80}|FinanceiroWeb.csproj|c:\\users\\thays\\onedrive\\documentos\\unecont\\financeiroweb\\views\\notasfiscais\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{672F0C86-6E90-4D2E-84B8-4E41A4543D80}|FinanceiroWeb.csproj|solutionrelative:views\\notasfiscais\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{672F0C86-6E90-4D2E-84B8-4E41A4543D80}|FinanceiroWeb.csproj|c:\\users\\thays\\onedrive\\documentos\\unecont\\financeiroweb\\models\\notafiscal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,16 +31,8 @@
       "RelativeMoniker": "D:0:0:{672F0C86-6E90-4D2E-84B8-4E41A4543D80}|FinanceiroWeb.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{672F0C86-6E90-4D2E-84B8-4E41A4543D80}|FinanceiroWeb.csproj|c:\\users\\thays\\onedrive\\documentos\\unecont\\financeiroweb\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{672F0C86-6E90-4D2E-84B8-4E41A4543D80}|FinanceiroWeb.csproj|solutionrelative:views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{672F0C86-6E90-4D2E-84B8-4E41A4543D80}|FinanceiroWeb.csproj|c:\\users\\thays\\onedrive\\documentos\\unecont\\financeiroweb\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{672F0C86-6E90-4D2E-84B8-4E41A4543D80}|FinanceiroWeb.csproj|solutionrelative:controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{672F0C86-6E90-4D2E-84B8-4E41A4543D80}|FinanceiroWeb.csproj|c:\\users\\thays\\onedrive\\documentos\\unecont\\financeiroweb\\controllers\\notasfiscaiscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{672F0C86-6E90-4D2E-84B8-4E41A4543D80}|FinanceiroWeb.csproj|solutionrelative:controllers\\notasfiscaiscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{672F0C86-6E90-4D2E-84B8-4E41A4543D80}|FinanceiroWeb.csproj|c:\\users\\thays\\onedrive\\documentos\\unecont\\financeiroweb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -58,17 +58,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 2,
               "Title": "NotasFiscaisController.cs",
               "DocumentMoniker": "C:\\Users\\Thays\\OneDrive\\Documentos\\UneCont\\FinanceiroWeb\\Controllers\\NotasFiscaisController.cs",
               "RelativeDocumentMoniker": "Controllers\\NotasFiscaisController.cs",
-              "ToolTip": "C:\\Users\\Thays\\OneDrive\\Documentos\\UneCont\\FinanceiroWeb\\Controllers\\NotasFiscaisController.cs",
-              "RelativeToolTip": "Controllers\\NotasFiscaisController.cs",
-              "ViewState": "AgIAAH0AAAAAAAAAAAAmwJsAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Thays\\OneDrive\\Documentos\\UneCont\\FinanceiroWeb\\Controllers\\NotasFiscaisController.cs*",
+              "RelativeToolTip": "Controllers\\NotasFiscaisController.cs*",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAmwB0AAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-25T23:14:16.732Z",
               "IsPinned": true,
@@ -76,7 +76,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "NotaFiscal.cs",
               "DocumentMoniker": "C:\\Users\\Thays\\OneDrive\\Documentos\\UneCont\\FinanceiroWeb\\Models\\NotaFiscal.cs",
               "RelativeDocumentMoniker": "Models\\NotaFiscal.cs",
@@ -90,7 +90,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\Thays\\OneDrive\\Documentos\\UneCont\\FinanceiroWeb\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
@@ -104,7 +104,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Thays\\OneDrive\\Documentos\\UneCont\\FinanceiroWeb\\Views\\Dashboard\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Dashboard\\Index.cshtml",
@@ -118,13 +118,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Thays\\OneDrive\\Documentos\\UneCont\\FinanceiroWeb\\Views\\NotasFiscais\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\NotasFiscais\\Index.cshtml",
               "ToolTip": "C:\\Users\\Thays\\OneDrive\\Documentos\\UneCont\\FinanceiroWeb\\Views\\NotasFiscais\\Index.cshtml",
               "RelativeToolTip": "Views\\NotasFiscais\\Index.cshtml",
-              "ViewState": "AgIAAB8AAAAAAAAAAADwv3MAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAG0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-09-26T21:02:11.045Z",
               "IsPinned": true,
@@ -132,13 +132,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "AdicionarNF.cshtml",
               "DocumentMoniker": "C:\\Users\\Thays\\OneDrive\\Documentos\\UneCont\\FinanceiroWeb\\Views\\NotasFiscais\\AdicionarNF.cshtml",
               "RelativeDocumentMoniker": "Views\\NotasFiscais\\AdicionarNF.cshtml",
               "ToolTip": "C:\\Users\\Thays\\OneDrive\\Documentos\\UneCont\\FinanceiroWeb\\Views\\NotasFiscais\\AdicionarNF.cshtml",
               "RelativeToolTip": "Views\\NotasFiscais\\AdicionarNF.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAAADUAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-09-26T21:01:28.649Z",
               "IsPinned": true,
@@ -146,7 +146,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "EditarNF.cshtml",
               "DocumentMoniker": "C:\\Users\\Thays\\OneDrive\\Documentos\\UneCont\\FinanceiroWeb\\Views\\NotasFiscais\\EditarNF.cshtml",
               "RelativeDocumentMoniker": "Views\\NotasFiscais\\EditarNF.cshtml",
@@ -159,7 +159,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "DashboardController.cs",
               "DocumentMoniker": "C:\\Users\\Thays\\OneDrive\\Documentos\\UneCont\\FinanceiroWeb\\Controllers\\DashboardController.cs",
               "RelativeDocumentMoniker": "Controllers\\DashboardController.cs",

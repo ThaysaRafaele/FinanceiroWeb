@@ -4,7 +4,6 @@ using FinanceiroWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
 
 namespace FinanceiroWeb.Controllers
 {
@@ -18,43 +17,54 @@ namespace FinanceiroWeb.Controllers
         }
 
         // GET: NotasFiscais/Index
-        //public async Task<IActionResult> Index()
-        //{
-        //    var notasFiscais = await _context.NotasFiscais.ToListAsync();
-        //    return View(notasFiscais);
-        //}
 
-        public async Task<IActionResult> Index(int? anoEmissao, int? mesEmissao, int? anoCobranca, int? mesCobranca, int? anoPagamento, int? mesPagamento, StatusNotaFiscal? status)
+        public async Task<IActionResult> Index(int? mesEmissao, int? mesCobranca, int? mesPagamento, StatusNotaFiscal? status)
         {
+            // Inicializando a query base
             var query = _context.NotasFiscais.AsQueryable();
 
-            if (anoEmissao.HasValue && mesEmissao.HasValue)
+            // Filtrando por mês de emissão
+            if (mesEmissao.HasValue)
             {
-                query = query.Where(nf => nf.DataEmissao.Year == anoEmissao.Value && nf.DataEmissao.Month == mesEmissao.Value);
+                query = query.Where(nf => nf.DataEmissao.Month == mesEmissao.Value);
             }
 
-            if (anoCobranca.HasValue && mesCobranca.HasValue)
+            // Filtrando por mês de cobrança
+            if (mesCobranca.HasValue)
             {
-                query = query.Where(nf => nf.DataCobranca.Year == anoCobranca.Value && nf.DataCobranca.Month == mesCobranca.Value);
+                query = query.Where(nf => nf.DataCobranca.Month == mesCobranca.Value);
             }
 
-            if (anoPagamento.HasValue && mesPagamento.HasValue)
+            // Filtrando por mês de pagamento
+            if (mesPagamento.HasValue)
             {
-                query = query.Where(nf => nf.DataPagamento.HasValue && nf.DataPagamento.Value.Year == anoPagamento.Value && nf.DataPagamento.Value.Month == mesPagamento.Value);
+                query = query.Where(nf => nf.DataPagamento.HasValue && nf.DataPagamento.Value.Month == mesPagamento.Value);
             }
 
+            // Filtrando por status (se um status for selecionado)
             if (status.HasValue)
             {
                 query = query.Where(nf => nf.Status == status.Value);
             }
 
+            // Executando a query
             var notasFiscais = await query.ToListAsync();
 
-            
-            ViewBag.StatusOptions = new SelectList(Enum.GetValues(typeof(StatusNotaFiscal))
+            // Preparando os dados para a View
+            var statusOptions = Enum.GetValues(typeof(StatusNotaFiscal))
                 .Cast<StatusNotaFiscal>()
-                .Select(s => new { Value = s, Text = s.GetDisplayName() }),
-                "Value", "Text");
+                .Select(s => new SelectListItem
+                {
+                    Value = ((int)s).ToString(),
+                    Text = s.GetDisplayName(),
+                    Selected = status.HasValue && s == status.Value
+                }).ToList();
+
+            ViewBag.StatusOptions = statusOptions;
+            ViewBag.MesEmissao = mesEmissao;
+            ViewBag.MesCobranca = mesCobranca;
+            ViewBag.MesPagamento = mesPagamento;
+            ViewBag.Status = status;
 
             return View(notasFiscais);
         }
