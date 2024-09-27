@@ -2,7 +2,7 @@
 @model FinanceiroWeb.Models.NotaFiscal
 
 @{
-    ViewData["Title"] = "Criar Nota Fiscal";
+    ViewData["Title"] = "Inserir Nota Fiscal";
 
     // Preparando a lista de opções para o Status da Nota
     var statusOptions = Enum.GetValues(typeof(FinanceiroWeb.Models.StatusNotaFiscal))
@@ -14,7 +14,7 @@
         }).ToList();
 }
 
-<h1>Criar Nota Fiscal</h1>
+<h1>Inserir Nota Fiscal</h1>
 
 <form asp-action="AdicionarNF">
     <div class="form-group">
