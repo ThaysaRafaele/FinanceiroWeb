@@ -87,8 +87,10 @@
                 <td>@item.DocumentoBoleto</td>
                 <td>@item.Status.GetDisplayName()</td>
                 <td>
-                    <a class="btn btn-warning" asp-action="EditarNF" asp-route-id="@item.NotaId">Editar</a> 
-                    <a class="btn btn-danger" asp-action="ExcluirNF" asp-route-id="@item.NotaId">Excluir</a>
+                    <div class="d-flex">
+                        <a class="btn btn-warning" asp-action="EditarNF" asp-route-id="@item.NotaId" style="margin-right:10px;">Editar</a>
+                        <a class="btn btn-danger" asp-action="ExcluirNF" asp-route-id="@item.NotaId">Excluir</a>
+                    </div>                    
                 </td>
             </tr>
         }

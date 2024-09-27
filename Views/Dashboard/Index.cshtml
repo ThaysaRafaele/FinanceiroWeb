@@ -4,20 +4,102 @@
 
 <div class="container-fluid">
     <div class="row">
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-            <div class="sidebar-sticky">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Dashboard</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
             <h2>Dashboard Financeiro</h2>
-            <div id="chartContainer"></div>
-            <!-- Adicionar gráficos e tabelas depois -->
+
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>Total Notas Emitidas</h4>
+                    <p>@ViewBag.TotalEmitidas.ToString("C")</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Total Sem Cobrança</h4>
+                    <p>@ViewBag.TotalEmitidasSemCobranca.ToString("C")</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Total Vencidas (Inadimplência)</h4>
+                    <p>@ViewBag.TotalVencidas.ToString("C")</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Total a Vencer</h4>
+                    <p>@ViewBag.TotalAVencer.ToString("C")</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Total Pagas</h4>
+                    <p>@ViewBag.TotalPagas.ToString("C")</p>
+                </div>
+            </div>
+
+            <h4>Gráfico de Inadimplência Mês a Mês</h4>
+            <canvas id="chartInadimplencia" width="400" height="200"></canvas>
+
+            <h4>Gráfico de Receita Mês a Mês</h4>
+            <canvas id="chartReceita" width="400" height="200"></canvas>
+
         </main>
     </div>
 </div>
+
+<script>
+    // serializando para JavaScript a ViewBag
+    var inadimplenciaData = @Html.Raw(Json.Serialize(ViewBag.InadimplenciaPorMes));
+
+    // Preparando os dados para os gráficos
+    var meses = inadimplenciaData.map(function (item) {
+        return 'Mês ' + item.mes; // 'Mês 1', 'Mês 2', etc
+    });
+
+    var inadimplenciaValores = inadimplenciaData.map(function (item) {
+        return item.totalInadimplencia;
+    });
+
+    var receitaValores = inadimplenciaData.map(function (item) {
+        return item.totalReceita;
+    });
+
+    // Gráfico de Inadimplência
+    var ctxInadimplencia = document.getElementById('chartInadimplencia').getContext('2d');
+    var chartInadimplencia = new Chart(ctxInadimplencia, {
+        type: 'line',
+        data: {
+            labels: meses,
+            datasets: [{
+                label: 'Total Inadimplência',
+                data: inadimplenciaValores,
+                backgroundColor: 'rgba(255, 99, 132, 0.2)', // Cor das barras
+                borderColor: 'rgba(255, 99, 132, 1)', // Cor da borda
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // Gráfico de Receita
+    var ctxReceita = document.getElementById('chartReceita').getContext('2d');
+    var chartReceita = new Chart(ctxReceita, {
+        type: 'line', // Pode ser 'line', 'pie', etc.
+        data: {
+            labels: meses,
+            datasets: [{
+                label: 'Total Receita',
+                data: receitaValores,
+                backgroundColor: 'rgba(54, 162, 235, 0.2)', 
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
