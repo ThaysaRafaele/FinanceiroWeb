@@ -23,9 +23,9 @@
         }
     </style>
 </head>
-<body class="d-flex flex-column">
+<body class="d-flex flex-column min-vh-100" style="background-color: #fbfbfb;">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-color: #feebf3;">
             <div class="container-fluid">
 
                 <button id="menuToggle" class="navbar-toggler" type="button" aria-label="Toggle navigation" style="display: inline-block;">
@@ -46,16 +46,16 @@
 
     <div class="container-fluid d-flex flex-grow-1">
         <div class="row flex-grow-1">
-            <nav id="sidebar" class="col-md-2 d-none d-md-block bg-light sidebar vh-100">
+            <nav id="sidebar" class="col-md-2 d-none d-md-block sidebar" style="background-color: #feebf3;">
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" asp-controller="Dashboard" asp-action="Index">
+                            <a class="nav-link active" asp-controller="Dashboard" asp-action="Index" style="color:#88003e;">
                                 <i class="bi bi-house"></i> Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="NotasFiscais" asp-action="Index">
+                            <a class="nav-link" asp-controller="NotasFiscais" asp-action="Index" style="color:#88003e;">
                                 <i class="bi bi-file-earmark-text"></i> Notas Fiscais
                             </a>
                         </li>
@@ -68,7 +68,7 @@
         </div>
     </div>
 
-    <footer class="border-top footer text-muted mt-auto">
+    <footer class="border-top footer text-muted mt-auto" style="background-color: #feebf3;">
         <div class="container d-flex justify-content-center">
             &copy; 2024 - FinanceiroWeb - Thaysa Rafaele
         </div>

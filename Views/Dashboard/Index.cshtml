@@ -7,7 +7,7 @@
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
             <h2>Dashboard Financeiro</h2>
 
-            <div class="row">
+            <div class="row d-flex flex-xl-wrap" style="margin-top: 4rem; margin-bottom:4rem;">
                 <div class="col-md-4">
                     <h4>Total Notas Emitidas</h4>
                     <p>@ViewBag.TotalEmitidas.ToString("C")</p>
@@ -30,12 +30,15 @@
                 </div>
             </div>
 
-            <h4>Gráfico de Inadimplência Mês a Mês</h4>
-            <canvas id="chartInadimplencia" width="400" height="200"></canvas>
-
-            <h4>Gráfico de Receita Mês a Mês</h4>
-            <canvas id="chartReceita" width="400" height="200"></canvas>
-
+            <div style="margin-bottom:2rem;">
+                <h4>Gráfico de Inadimplência Mês a Mês</h4>
+                <canvas id="chartInadimplencia" width="400" height="200"></canvas>
+            </div>
+            <div style="margin-bottom:4rem;">
+                <h4>Gráfico de Receita Mês a Mês</h4>
+                <canvas id="chartReceita" width="400" height="200"></canvas>
+            </div>
+            
         </main>
     </div>
 </div>
@@ -46,7 +49,7 @@
 
     // Preparando os dados para os gráficos
     var meses = inadimplenciaData.map(function (item) {
-        return 'Mês ' + item.mes; // 'Mês 1', 'Mês 2', etc
+        return 'Mês ' + item.mes; 
     });
 
     var inadimplenciaValores = inadimplenciaData.map(function (item) {
@@ -66,8 +69,8 @@
             datasets: [{
                 label: 'Total Inadimplência',
                 data: inadimplenciaValores,
-                backgroundColor: 'rgba(255, 99, 132, 0.2)', // Cor das barras
-                borderColor: 'rgba(255, 99, 132, 1)', // Cor da borda
+                backgroundColor: '#E41F7B', 
+                borderColor: '#FF8BA0', 
                 borderWidth: 1
             }]
         },
@@ -83,14 +86,14 @@
     // Gráfico de Receita
     var ctxReceita = document.getElementById('chartReceita').getContext('2d');
     var chartReceita = new Chart(ctxReceita, {
-        type: 'line', // Pode ser 'line', 'pie', etc.
+        type: 'line', 
         data: {
             labels: meses,
             datasets: [{
                 label: 'Total Receita',
                 data: receitaValores,
-                backgroundColor: 'rgba(54, 162, 235, 0.2)', 
-                borderColor: 'rgba(54, 162, 235, 1)',
+                backgroundColor: '#00ADB5', 
+                borderColor: '#00FFF5',
                 borderWidth: 1
             }]
         },
