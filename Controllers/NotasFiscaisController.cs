@@ -50,7 +50,7 @@ namespace FinanceiroWeb.Controllers
 
             var notasFiscais = await query.ToListAsync();
 
-            // Preparando dados para a view (opcional, por exemplo, para listas suspensas)
+            
             ViewBag.StatusOptions = new SelectList(Enum.GetValues(typeof(StatusNotaFiscal))
                 .Cast<StatusNotaFiscal>()
                 .Select(s => new { Value = s, Text = s.GetDisplayName() }),
