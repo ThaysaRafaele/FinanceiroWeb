@@ -24,7 +24,7 @@ O FinanceiroWeb é um sistema de gestão financeira desenvolvido em ASP.NET Core
     "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=FinanceiroDB;Trusted_Connection=True;MultipleActiveResultSets=true"
 }`
 
-* Executar migrações para criar as tabelas: No terminal do Visual Studio
+* Executar migrations para criar as tabelas: No terminal do Visual Studio
 `dotnet ef database update`
 
 ### Configuração do Docker
